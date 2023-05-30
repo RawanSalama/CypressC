@@ -5,7 +5,7 @@ Feature: Go to userpilot
 
     Scenario: login
         When Enter username and password
-        Then Click into sign in button
+        When Click into sign in button
         Then Verify the url of the cuurrent page
 #And the user is on users dashboard
 

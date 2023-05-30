@@ -1,12 +1,21 @@
-import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
+import {
+  When,
+  Then,
+  Given,
+  And,
+} from "@badeball/cypress-cucumber-preprocessor";
+const users = require("./users");
 Given("Visit Userpilot website", () => {
   cy.visit("https://nxtg-dev-feature-reports.userpilot.io");
 });
 When("Enter username and password", () => {
-  cy.get("#email").type("rawan+report@userpilot.co");
-  cy.get("#password").type("Aa1234567@");
+  const { email, password } = users;
+
+  cy.get("#email").type(email);
+  cy.get("#password").type(password);
 });
-Then("Click into sign in button", () => {
+
+When("Click into sign in button", () => {
   cy.contains("Continue with Email").click();
   cy.wait(10000);
 });
