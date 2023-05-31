@@ -1,9 +1,4 @@
-import {
-  When,
-  Then,
-  Given,
-  And,
-} from "@badeball/cypress-cucumber-preprocessor";
+import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
 const users = require("./users");
 Given("Visit Userpilot website", () => {
   cy.visit("https://nxtg-dev-feature-reports.userpilot.io");
