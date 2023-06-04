@@ -1,19 +1,19 @@
 import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
 const users = require("./users");
-Given("Visit Userpilot website", () => {
+Given("The user visits Userpilot Website", () => {
   cy.visit("https://nxtg-dev-feature-reports.userpilot.io");
 });
-When("Enter username and password", () => {
+When("The users enters username and password", () => {
   const { email, password } = users;
 
   cy.get("#email").type(email);
   cy.get("#password").type(password);
 });
 
-When("Click into sign in button", () => {
+When("The user clicks the sign in button", () => {
   cy.contains("Continue with Email").click();
   cy.wait(10000);
 });
-Then("Verify the url of the cuurrent page", () => {
-  cy.url().should("include", "/users");
+Then("Verify the url of the current page includes {string}", (Url) => {
+  cy.url().should("include", Url);
 });
