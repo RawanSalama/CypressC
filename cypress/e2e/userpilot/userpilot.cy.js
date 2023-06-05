@@ -1,4 +1,6 @@
 import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
+let PageEffectiveness = "#table-container-id";
+let UserActivity = "#table-container-id";
 const users = require("./users");
 Given("The user visits Userpilot Website", () => {
   cy.visit("https://run.userpilot.io");
@@ -19,11 +21,11 @@ When("The user clicks on Growth Insights", () => {
 });
 When("The user clicks on Pages dashboard and scrolls down", () => {
   cy.contains("Pages").click();
-  cy.get("#table-container-id").scrollIntoView();
+  cy.get(PageEffectiveness).scrollIntoView();
 });
 When("The user clicks on {string} page", (pageName) => {
   cy.contains(pageName).click();
-  cy.get("#table-container-id").scrollIntoView();
+  cy.get(UserActivity).scrollIntoView();
 });
 Then("The user which called {string} should exists", (name) => {
   cy.contains(name).should("exist");
