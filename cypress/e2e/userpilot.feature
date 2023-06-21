@@ -7,7 +7,7 @@ Feature: Create a survey
 
     Scenario: Verify that user can create a survey
         When The user clicks on User Feedback
-        And The user creates new survey and select template
+        And The user creates a new survey and selects a template
         And The user clicks on publish
         Then The user must recieved successful message
 

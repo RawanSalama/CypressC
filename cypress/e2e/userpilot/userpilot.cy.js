@@ -18,12 +18,15 @@ When("The user clicks the sign in button", () => {
 When("The user clicks on User Feedback", () => {
   cy.contains("User Feedback").click();
 });
-When("The user creates new survey and select template", () => {
+When("The user creates a new survey and selects a template", () => {
   cy.contains("Surveys").click();
-  cy.contains("Create Survey").click();
-  cy.contains("Feature Research Survey").scrollIntoView().trigger("mouseover");
-  cy.contains("Use Template").click({ force: true });
-  cy.wait(10000);
+  cy.contains("Create Survey").trigger("mouseover", { force: true }).click();
+  cy.contains("Feature Research Survey", { timeout: 5000 })
+    .scrollIntoView()
+    .trigger("mouseover");
+  cy.contains("Use Template")
+    .trigger("mouseover", { force: true })
+    .click({ force: true });
 });
 When("The user clicks on publish", () => {
   cy.contains("Publish").click();
