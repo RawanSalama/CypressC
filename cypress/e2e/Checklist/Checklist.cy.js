@@ -1,5 +1,6 @@
 import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
 const users = require("../users");
+
 let create = '[data-testid="create-checklist-button"]';
 Given("The user visits Userpilot", () => {
   cy.visit("https://nxtg-dev-qa-unique-ids.userpilot.io");
@@ -50,21 +51,18 @@ When("Publish checklist", () => {
     .click({ timeout: 1000 });
   cy.get(".MuiChip-label").contains("Live").should("exist");
 });
-// Then("Checklist should appear in the table", () => {
-//   cy.contains("Engagement").click();
-//   cy.contains("Checklists").click();
-//   cy.wait(10000);
-// });
-Then("the user goes to settings", () => {
-  cy.contains("Settings").click();
-  cy.contains("Only-Manually").click();
-  cy.get(".MuiChip-label")
-    .contains("Live")
-    .should(($label) => {
-      expect($label).to.have.css("background-color", "rgb(227, 183, 9)");
-    });
 
-  // cy.get(".MuiChip-label")
-  //   .contains("Live")
-  //   .should("have.css", "background-color", "rgb(227, 183, 9)");
+Then("The user goes to settings", () => {
+  cy.contains("Settings").click();
+});
+When("The user changes on the settings", () => {
+  cy.contains("Only-Manually").click();
+});
+
+Then("Status for pending changes should appear", () => {
+  cy.get(".MuiChip-root").should(
+    "have.css",
+    "background-color",
+    "rgb(227, 183, 9)"
+  );
 });

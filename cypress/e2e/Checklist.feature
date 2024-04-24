@@ -10,9 +10,8 @@ Feature: Testing Checklists
         And The User creates new Checklist
         And User Adds tasks
         And Publish checklist
+        And The user goes to settings
+        When The user changes on the settings
+        And Status for pending changes should appear
 
-        # Scenario: Change the settings for checklist
-        And the user goes to settings
-# When the user change on the settings for the checklist
-# Then Push updates status should appear
 

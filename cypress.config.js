@@ -44,6 +44,7 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  video: true,
   projectId: "efshvw",
   nonGlobalStepDefinition: true,
   e2e: {
