@@ -23,7 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import "cypress-dotenv";
-Cypress.on("uncaught:exception", (err, runnable) => {
-  return false;
-});
